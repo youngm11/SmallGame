@@ -7,10 +7,13 @@ public class PlayerController : MonoBehaviour
     //Used to store the users inputs to make the player move.
     private Vector2 direction = Vector2.zero;
 
+    private Rigidbody2D rb;
+    public float speed = 5f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -44,6 +47,15 @@ public class PlayerController : MonoBehaviour
         {
             direction.y = 0;
         }
+
+        //Make the direction vestor have a length of one
+        direction = direction.normalized;
+    }
+
+    private void FixedUpdate()
+    {
+        //Move the character
+        rb.MovePosition(rb.position + (direction * speed * Time.fixedDeltaTime));
     }
     private void OnDrawGizmos()
     {
