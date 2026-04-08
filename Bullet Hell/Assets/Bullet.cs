@@ -4,10 +4,14 @@ public class Bullet : MonoBehaviour
 {
     Rigidbody2D rb;
     Vector2 direction;
-    public float speed;
+    public float speed = 8;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
+        //Destroy the bullet after 3 seconds
+        Destroy(this.gameObject, 3f);
+
         //Get components to use
         rb = GetComponent<Rigidbody2D>();
 
