@@ -5,6 +5,9 @@ public class Bullet : MonoBehaviour
     Rigidbody2D rb;
     Vector2 direction;
     public float speed = 8;
+
+    public int damage = 1;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
